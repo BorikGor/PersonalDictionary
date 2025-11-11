@@ -38,6 +38,10 @@ android {
 
 }
 
+kotlin {
+    jvmToolchain(17)
+}
+
 dependencies {
     val composeBom = platform("androidx.compose:compose-bom:2025.10.01")
     implementation(composeBom)
@@ -53,9 +57,10 @@ dependencies {
     implementation("androidx.activity:activity-compose:1.9.2")
 
     // Glance (виджеты)
-    implementation("androidx.glance:glance:1.1.0")
-    implementation("androidx.glance:glance-appwidget:1.1.0") // [6](https://wiki.ling.washington.edu/bin/view/Main/PanLex)
+    implementation("androidx.glance:glance:1.1.1")
+    implementation("androidx.glance:glance-appwidget:1.1.1")
     implementation("androidx.glance:glance-material3:1.1.1")
+
 
     // WorkManager (суточное обновление виджета)
     implementation("androidx.work:work-runtime-ktx:2.9.1") // [7](https://www.clrn.org/how-to-change-widget-size-on-samsung/)

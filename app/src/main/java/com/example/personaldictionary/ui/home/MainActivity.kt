@@ -1,33 +1,68 @@
-// app/src/main/java/com/example/personaldictionary/MainActivity.kt
 package com.example.personaldictionary
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
+import androidx.compose.foundation.layout.*
+import androidx.compose.material3.*
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.dp
 
 /**
- * main activity
- * -------------
+ * MainActivity
+ * ------------
  * Purpose:
- *   Hosts a very simple Compose screen with a title.
+ *   Shows a minimal screen so the app isn't just a black screen.
  *
  * Methods used:
- *   - setContent: sets Compose UI content.
+ *   - setContent(): sets Compose UI content.
  *
  * Variables created:
  *   - none
  */
 class MainActivity : ComponentActivity() {
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            // A minimal Material3 surface with a title text.
-            Surface(color = MaterialTheme.colorScheme.background) {
-                Text(text = "Personal Dictionary")
+            AppHome()
+        }
+    }
+}
+
+/**
+ * AppHome()
+ * ---------
+ * Purpose:
+ *   Minimal UI with a title and a hint about the widget.
+ *
+ * Methods used:
+ *   - Column(), Text(), Button()
+ *
+ * Variables created:
+ *   - none
+ */
+@Composable
+fun AppHome() {
+    MaterialTheme {
+        Surface(Modifier.fillMaxSize()) {
+            Column(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(24.dp),
+                horizontalAlignment = Alignment.Start,
+                verticalArrangement = Arrangement.spacedBy(16.dp)
+            ) {
+                Text(
+                    text = "Personal Dictionary",
+                    style = MaterialTheme.typography.headlineSmall
+                )
+                Text(
+                    text = "Add the Home Screen widget:\n" +
+                            "Press and hold on Home → Widgets → Personal Dictionary."
+                )
+                // Place app navigation here later
             }
         }
     }
